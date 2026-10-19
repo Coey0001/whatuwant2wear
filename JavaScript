@@ -1,0 +1,432 @@
+
+const outfits = [
+  {
+    id: "look01",
+    title: "The Soft Neutral",
+    style: "韓系休閒",
+    occasions: ["上課", "日常出遊", "約會"],
+    styles: ["韓系休閒", "溫柔甜美"],
+    weather: ["晴天", "多雲"],
+    temps: ["warm", "mild"],
+    colors: ["奶油白", "大地色"],
+    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85",
+    palette: ["#F0E7D8", "#C5B09A", "#77766D"],
+    reason: "以柔和的中性色建立乾淨、自然的層次，適合校園生活與日常出遊。透過簡單的單品組合，呈現輕鬆又有質感的韓系氛圍。",
+    tip: "搭配小型肩背包與簡約耳環，讓整體造型更完整。",
+    pieces: {
+      top: { category: "TOP", name: "奶油白針織上衣", desc: "柔和色調，營造溫柔感", options: ["白色襯衫", "米色長袖上衣", "淺灰針織衫"] },
+      bottom: { category: "BOTTOM", name: "高腰直筒牛仔褲", desc: "俐落版型，修飾身形", options: ["米色西裝褲", "深藍直筒牛仔褲", "奶油白長裙"] },
+      shoes: { category: "SHOES", name: "米白色休閒鞋", desc: "簡約百搭，適合日常", options: ["棕色樂福鞋", "白色帆布鞋", "簡約芭蕾平底鞋"] },
+      bag: { category: "BAG", name: "棕色小肩背包", desc: "增加整體造型的層次", options: ["奶油白腋下包", "帆布托特包", "深棕色手提包"] },
+      accessory: { category: "ACCESSORY", name: "金色細項鍊", desc: "低調精緻，不過度搶眼", options: ["珍珠耳環", "銀色細手鍊", "簡約髮夾"] },
+      hair: { category: "HAIR", name: "自然微捲中長髮", desc: "營造輕鬆自然的氛圍", options: ["低馬尾", "半丸子頭", "自然直髮"] }
+    }
+  },
+  {
+    id: "look02",
+    title: "Clean & Classic",
+    style: "Clean Fit",
+    occasions: ["上課", "通勤", "日常出遊"],
+    styles: ["Clean Fit", "極簡通勤"],
+    weather: ["晴天", "多雲"],
+    temps: ["warm", "mild"],
+    colors: ["灰黑", "牛仔藍"],
+    image: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=900&q=85",
+    palette: ["#E8E4DC", "#74746E", "#30302F"],
+    reason: "以俐落的線條和簡潔配色呈現 Clean Fit 風格。減少多餘裝飾，將重點放在合身剪裁與整體比例，適合上課及通勤。",
+    tip: "將上衣紮進褲頭，搭配皮帶，能讓整體比例更俐落。",
+    pieces: {
+      top: { category: "TOP", name: "白色合身 T-shirt", desc: "簡潔乾淨的基礎單品", options: ["淺灰襯衫", "黑色短版上衣", "白色針織上衣"] },
+      bottom: { category: "BOTTOM", name: "深灰西裝長褲", desc: "直線剪裁，俐落有型", options: ["深藍直筒牛仔褲", "黑色長裙", "米色西裝褲"] },
+      shoes: { category: "SHOES", name: "黑色樂福鞋", desc: "簡約且有正式感", options: ["白色休閒鞋", "黑色芭蕾平底鞋", "灰色運動鞋"] },
+      bag: { category: "BAG", name: "黑色簡約肩背包", desc: "線條乾淨，容易搭配", options: ["深棕色手提包", "灰色斜背包", "黑色托特包"] },
+      accessory: { category: "ACCESSORY", name: "銀色簡約耳環", desc: "冷色金屬提升精緻感", options: ["黑色皮帶", "銀色手錶", "細框眼鏡"] },
+      hair: { category: "HAIR", name: "俐落低馬尾", desc: "清爽整潔的整體形象", options: ["自然直髮", "低髮髻", "耳後別髮"] }
+    }
+  },
+  {
+    id: "look03",
+    title: "A Little Romance",
+    style: "溫柔甜美",
+    occasions: ["約會", "日常出遊", "聚會"],
+    styles: ["溫柔甜美", "韓系休閒"],
+    weather: ["晴天", "多雲"],
+    temps: ["warm", "mild"],
+    colors: ["粉色", "奶油白"],
+    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85",
+    palette: ["#F0D8D6", "#F7F0E6", "#C4AA94"],
+    reason: "利用柔和粉色和奶油白創造溫柔的視覺效果，搭配簡單的輪廓與小巧配飾，讓整體看起來甜美但不過度裝飾。",
+    tip: "選擇小巧的包包與細緻配飾，讓視覺重點保持平衡。",
+    pieces: {
+      top: { category: "TOP", name: "粉色柔軟針織衫", desc: "柔和配色，增添甜美感", options: ["白色蕾絲上衣", "米色短袖針織衫", "淺粉色襯衫"] },
+      bottom: { category: "BOTTOM", name: "奶油白 A 字長裙", desc: "輕柔線條，營造優雅感", options: ["淺藍牛仔褲", "米色百褶裙", "白色直筒長褲"] },
+      shoes: { category: "SHOES", name: "簡約芭蕾平底鞋", desc: "柔美而且適合日常行走", options: ["白色休閒鞋", "棕色樂福鞋", "米色低跟鞋"] },
+      bag: { category: "BAG", name: "奶油白小包", desc: "輕巧外型，呼應整體色調", options: ["粉色肩背包", "棕色小手提包", "米色腋下包"] },
+      accessory: { category: "ACCESSORY", name: "珍珠耳環", desc: "增添細緻的柔和氣質", options: ["金色細項鍊", "蝴蝶結髮夾", "細手鍊"] },
+      hair: { category: "HAIR", name: "柔和自然捲髮", desc: "增加輕盈與浪漫感", options: ["半扎髮", "低馬尾", "自然直髮"] }
+    }
+  },
+  {
+    id: "look04",
+    title: "Earthy Weekend",
+    style: "韓系休閒",
+    occasions: ["日常出遊", "上課", "聚會"],
+    styles: ["韓系休閒", "Clean Fit"],
+    weather: ["多雲", "晴天", "雨天"],
+    temps: ["warm", "mild", "cool"],
+    colors: ["大地色", "奶油白"],
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
+    palette: ["#D9C5AC", "#A28C75", "#F5EFE5"],
+    reason: "以大地色系為主，搭配自然的服裝輪廓，營造輕鬆、耐看的日常造型。色彩協調且容易運用衣櫃裡已有的基本款。",
+    tip: "加入棕色皮革配件，能讓大地色穿搭更有完整度。",
+    pieces: {
+      top: { category: "TOP", name: "米色寬鬆襯衫", desc: "自然垂墜，舒適不拘束", options: ["白色長袖 T-shirt", "棕色針織上衣", "奶油白衛衣"] },
+      bottom: { category: "BOTTOM", name: "卡其色直筒長褲", desc: "自然大方，方便活動", options: ["深藍牛仔褲", "奶油白長裙", "深棕西裝褲"] },
+      shoes: { category: "SHOES", name: "復古休閒運動鞋", desc: "帶出輕鬆的日常感", options: ["棕色樂福鞋", "白色帆布鞋", "防潑水休閒鞋"] },
+      bag: { category: "BAG", name: "棕色帆布托特包", desc: "實用又符合自然色系", options: ["米色肩背包", "深棕色小包", "簡約斜背包"] },
+      accessory: { category: "ACCESSORY", name: "棕色皮帶", desc: "讓整體色彩更有連貫性", options: ["金色耳環", "簡約手錶", "米色髮箍"] },
+      hair: { category: "HAIR", name: "自然低馬尾", desc: "舒服自在，適合日常", options: ["自然直髮", "低髮髻", "半扎髮"] }
+    }
+  },
+  {
+    id: "look05",
+    title: "Soft Layering",
+    style: "極簡通勤",
+    occasions: ["通勤", "上課", "約會"],
+    styles: ["極簡通勤", "Clean Fit"],
+    weather: ["寒冷", "多雲", "雨天"],
+    temps: ["cool", "mild"],
+    colors: ["灰黑", "大地色"],
+    image: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85",
+    palette: ["#D3C4B3", "#77736D", "#3C3A37"],
+    reason: "透過長袖上衣、外套與俐落長褲建立層次，在偏涼的天氣保持舒適。灰黑與大地色相互平衡，呈現成熟簡約的風格。",
+    tip: "寒冷天氣可增加圍巾或厚襪；雨天則優先選擇防潑水外套與鞋款。",
+    pieces: {
+      top: { category: "TOP", name: "灰色高領針織衫", desc: "保暖且方便搭配外套", options: ["米色厚針織衫", "黑色長袖上衣", "白色高領內搭"] },
+      bottom: { category: "BOTTOM", name: "深色直筒長褲", desc: "簡約輪廓，方便疊穿", options: ["深灰西裝褲", "深藍牛仔褲", "黑色長裙搭配厚襪"] },
+      shoes: { category: "SHOES", name: "深色包覆式短靴", desc: "適合較涼的天氣", options: ["防潑水休閒鞋", "黑色樂福鞋", "深色厚底運動鞋"] },
+      bag: { category: "BAG", name: "深棕色手提包", desc: "沉穩色調，搭配俐落造型", options: ["黑色肩背包", "米色托特包", "深灰斜背包"] },
+      accessory: { category: "ACCESSORY", name: "簡約圍巾", desc: "增加保暖度與穿搭層次", options: ["銀色耳環", "深棕皮帶", "簡約手錶"] },
+      hair: { category: "HAIR", name: "整齊低髮髻", desc: "乾淨俐落，搭配高領上衣", options: ["低馬尾", "自然直髮", "半扎髮"] }
+    }
+  }
+];
+
+const form = document.getElementById("style-form");
+const emptyState = document.getElementById("empty-state");
+const resultBox = document.getElementById("outfit-result");
+const savedList = document.getElementById("saved-list");
+const savedCount = document.getElementById("saved-count");
+
+let currentOutfit = null;
+let lastOutfitId = null;
+let currentScore = 0;
+let currentColors = [];
+let currentPieces = {};
+let currentImage = "";
+let savedOutfits = loadSaved();
+let recommendationNumber = 0;
+
+const labels = {
+  top: "上衣",
+  bottom: "下身",
+  shoes: "鞋子",
+  bag: "包包",
+  accessory: "配飾",
+  hair: "髮型"
+};
+
+const colorHex = {
+  "奶油白": "#F0E7D8",
+  "大地色": "#B49A7B",
+  "灰黑": "#555451",
+  "牛仔藍": "#718BA6",
+  "粉色": "#E8C7CA"
+};
+
+function loadSaved() {
+  try {
+    const data = JSON.parse(localStorage.getItem("styleAheadSaved") || "[]");
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function persistSaved() {
+  try {
+    localStorage.setItem("styleAheadSaved", JSON.stringify(savedOutfits));
+  } catch {
+    alert("目前無法儲存收藏，請檢查瀏覽器的儲存設定。");
+  }
+}
+
+function getConditions() {
+  return {
+    occasion: document.getElementById("occasion").value,
+    style: document.getElementById("style").value,
+    weather: document.getElementById("weather").value,
+    temperature: document.getElementById("temperature").value,
+    color: document.getElementById("color").value,
+    preference: document.getElementById("preference").value
+  };
+}
+
+function getScore(outfit, c) {
+  let score = 0;
+
+  score += outfit.occasions.includes(c.occasion) ? 30 : 0;
+  score += outfit.styles.includes(c.style) ? 30 : 0;
+  score += outfit.colors.includes(c.color) ? 15 : 0;
+  score += outfit.temps.includes(c.temperature) ? 15 : 0;
+  score += outfit.weather.includes(c.weather) ? 10 : 0;
+
+  if (c.preference === "顯高" && outfit.id === "look02") score += 4;
+  if (c.preference === "舒適" && outfit.id === "look04") score += 4;
+  if (c.preference === "層次" && outfit.id === "look05") score += 4;
+  if (c.preference === "簡約" && outfit.id === "look02") score += 3;
+
+  // 寒冷天氣不推薦缺乏保暖層次的組合
+  if (c.temperature === "cool" && !outfit.temps.includes("cool")) {
+    score -= 25;
+  }
+
+  if (c.weather === "雨天" && outfit.id !== "look05" && outfit.id !== "look04") {
+    score -= 8;
+  }
+
+  return Math.max(0, Math.min(100, score));
+}
+
+function chooseOutfit() {
+  const conditions = getConditions();
+
+  const ranked = outfits
+    .map(outfit => ({
+      outfit,
+      score: getScore(outfit, conditions)
+    }))
+    .sort((a, b) => b.score - a.score);
+
+  const bestScore = ranked[0].score;
+  const closeMatches = ranked.filter(item => item.score >= bestScore - 15);
+
+  // 優先選擇分數接近、但不是上一套的搭配
+  let choices = closeMatches.filter(item =>
+    item.outfit.id !== lastOutfitId
+  );
+
+  if (!choices.length) choices = closeMatches;
+
+  const chosen = choices[Math.floor(Math.random() * choices.length)];
+
+  recommendationNumber++;
+  currentOutfit = chosen.outfit;
+  lastOutfitId = chosen.outfit.id;
+  currentScore = chosen.score;
+  currentColors = [...chosen.outfit.palette];
+  currentPieces = JSON.parse(JSON.stringify(chosen.outfit.pieces));
+  currentImage = chosen.outfit.image;
+
+  renderOutfit();
+}
+
+function renderOutfit() {
+  if (!currentOutfit) return;
+
+  emptyState.hidden = true;
+  resultBox.hidden = false;
+
+  document.getElementById("outfit-image").src = currentImage;
+  document.getElementById("outfit-image").alt = currentOutfit.title + " 穿搭參考";
+  document.getElementById("outfit-style").textContent =
+    currentOutfit.style.toUpperCase();
+  document.getElementById("outfit-title").textContent = currentOutfit.title;
+  document.getElementById("outfit-reason").textContent = currentOutfit.reason;
+  document.getElementById("look-number").textContent =
+    "LOOK " + String(recommendationNumber).padStart(2, "0");
+
+  document.getElementById("match-score").textContent = currentScore + "%";
+  document.getElementById("match-bar").style.width = currentScore + "%";
+
+  const palette = document.getElementById("color-palette");
+  palette.replaceChildren();
+
+  currentColors.forEach(color => {
+    const swatch = document.createElement("span");
+    swatch.className = "swatch";
+    swatch.style.backgroundColor = color;
+    swatch.title = color;
+    swatch.setAttribute("aria-label", "配色 " + color);
+    palette.appendChild(swatch);
+  });
+
+  document.getElementById("outfit-tip").textContent =
+    "STYLE NOTE — " + currentOutfit.tip;
+
+  renderPieces();
+  updateSaveButton();
+
+  // 只在使用者按下生成或重新推薦時捲動到結果
+}
+
+function renderPieces() {
+  const grid = document.getElementById("pieces-grid");
+  grid.replaceChildren();
+
+  Object.entries(currentPieces).forEach(([key, piece]) => {
+    const card = document.createElement("article");
+    card.className = "piece-card";
+
+    const category = document.createElement("span");
+    category.className = "piece-category";
+    category.textContent = piece.category;
+
+    const title = document.createElement("h4");
+    title.textContent = piece.name;
+
+    const desc = document.createElement("p");
+    desc.textContent = piece.desc;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = "↻ 更換" + labels[key];
+    button.addEventListener("click", () => replacePiece(key));
+
+    card.append(category, title, desc, button);
+    grid.appendChild(card);
+  });
+}
+
+function replacePiece(key) {
+  const piece = currentPieces[key];
+  const alternatives = piece.options.filter(name => name !== piece.name);
+
+  if (!alternatives.length) return;
+
+  const nextIndex = Math.floor(Math.random() * alternatives.length);
+  currentPieces[key] = {
+    ...piece,
+    name: alternatives[nextIndex],
+    options: piece.options
+  };
+
+  renderPieces();
+  updateSaveButton();
+}
+
+function updateSaveButton() {
+  const button = document.getElementById("save-btn");
+  const exists = currentOutfit && savedOutfits.some(item =>
+    item.key === getCurrentKey()
+  );
+
+  button.textContent = exists ? "♥ 已收藏" : "♡ 收藏穿搭";
+}
+
+function getCurrentKey() {
+  return currentOutfit.id + "|" +
+    Object.entries(currentPieces)
+      .map(([key, piece]) => key + ":" + piece.name)
+      .join("|");
+}
+
+function saveCurrentOutfit() {
+  if (!currentOutfit) return;
+
+  const key = getCurrentKey();
+  const index = savedOutfits.findIndex(item => item.key === key);
+
+  if (index >= 0) {
+    savedOutfits.splice(index, 1);
+  } else {
+    savedOutfits.unshift({
+      key,
+      id: currentOutfit.id,
+      title: currentOutfit.title,
+      style: currentOutfit.style,
+      image: currentImage,
+      pieces: JSON.parse(JSON.stringify(currentPieces)),
+      colors: [...currentColors],
+      savedAt: new Date().toISOString()
+    });
+  }
+
+  persistSaved();
+  renderSaved();
+  updateSaveButton();
+}
+
+function renderSaved() {
+  savedCount.textContent = savedOutfits.length;
+  savedList.replaceChildren();
+
+  if (!savedOutfits.length) {
+    const message = document.createElement("p");
+    message.className = "saved-empty";
+    message.textContent =
+      "還沒有收藏的穿搭，遇到喜歡的搭配就把它留下來吧 ♡";
+    savedList.appendChild(message);
+    return;
+  }
+
+  savedOutfits.forEach(item => {
+    const card = document.createElement("article");
+    card.className = "saved-card";
+
+    const img = document.createElement("img");
+    img.src = item.image;
+    img.alt = item.title + " 穿搭";
+    img.loading = "lazy";
+    img.onerror = () => {
+      img.style.display = "none";
+    };
+
+    const body = document.createElement("div");
+    body.className = "saved-card-body";
+
+    const title = document.createElement("h3");
+    title.textContent = item.title;
+
+    const style = document.createElement("p");
+    style.textContent = item.style;
+
+    const detail = document.createElement("p");
+    detail.textContent = Object.entries(item.pieces)
+      .map(([key, piece]) => labels[key] + "：" + piece.name)
+      .join(" · ");
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.textContent = "♡ 取消收藏";
+    remove.addEventListener("click", () => {
+      savedOutfits = savedOutfits.filter(saved => saved.key !== item.key);
+      persistSaved();
+      renderSaved();
+      updateSaveButton();
+    });
+
+    body.append(title, style, detail, remove);
+    card.append(img, body);
+    savedList.appendChild(card);
+  });
+}
+
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  chooseOutfit();
+  document.getElementById("result").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+});
+
+document.getElementById("refresh-btn").addEventListener("click", () => {
+  chooseOutfit();
+});
+
+document.getElementById("save-btn").addEventListener("click", () => {
+  saveCurrentOutfit();
+});
+
+renderSaved();
